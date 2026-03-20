@@ -110,7 +110,20 @@ entry_new_db = tk.Entry(frame_new)
 entry_new_db.pack(side="left", fill="x", expand=True)
 tk.Button(frame_new, text="Browse", command=select_new_db).pack(side="right", padx=(5, 0))
 
-# Кнопка GO
-tk.Button(root, text="GO", command=run_migration, width=15, bg="#4CAF50", fg="white", font=("Arial", 10, "bold")).pack(pady=20)
+# Кнопка GO с принудительной высотой
+btn_go = tk.Button(
+    root, 
+    text="GO", 
+    command=run_migration, 
+    bg="#4CAF50", 
+    fg="white", 
+    font=("Arial", 10, "bold"),
+    height=2,       # Высота в СТРОКАХ текста (в Linux это спасет от "полоски")
+    width=15,       # Ширина в СИМВОЛАХ
+    cursor="hand2"
+)
+
+# Используем pady для внешнего отступа от полей ввода
+btn_go.pack(pady=15)
 
 root.mainloop()
